@@ -11,9 +11,8 @@ function sendForm (){
         lastName: lastName.value,
         birthday: birthday.value
     }
-    console.log(data)
 
-    fetch ('https://jsonplaceholder.typicode.com/users', {body: data, method: "POST"})
+    fetch ('https://jsonplaceholder.typicode.com/users', {body: JSON.stringify(data), method: "POST", headers:{"Content-Type": "application/json"}})
     .then((data) => data.json())
     .then((res) => { console.log('Todo ha salido bien: ', res) })
     .catch((e) => { console.log('Algo ha salido mal: ', e) })
